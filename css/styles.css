@@ -216,40 +216,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-trust-item svg { color: var(--accent-gold); flex-shrink: 0; }
 
 .hero-visual-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-light);
   background: #fff;
-  position: relative;
 }
 
 .hero-visual-card img { width: 100%; height: auto; display: block; }
-
-.floating-badge {
-  position: absolute; bottom: 20px; left: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 0.8rem 1.1rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  display: flex; align-items: center; gap: 0.75rem;
-}
-
-.badge-pulse {
-  width: 8px; height: 8px; background-color: #3f7d5c; border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(63, 125, 92, 0.6);
-  animation: pulse 2.2s infinite;
-  flex-shrink: 0;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(63, 125, 92, 0.55); }
-  70% { box-shadow: 0 0 0 9px rgba(63, 125, 92, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(63, 125, 92, 0); }
-}
-
-.badge-text-title { font-size: 0.85rem; font-weight: 600; }
-.badge-text-subtitle { font-size: 0.78rem; color: var(--text-muted); }
 
 /* Steps */
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
@@ -270,16 +244,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   margin-top: 3.5rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
 }
 
-.editor-demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+.editor-demo-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.editor-demo-grid { display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: center; }
 
 .editor-controls {
   display: flex; flex-direction: column; gap: 1.1rem;
   background: var(--bg-primary);
-  padding: 1.6rem;
+  padding: 1.5rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
 }
@@ -301,22 +280,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--accent-gold); }
 
 .editor-preview-frame {
-  background: var(--bg-dark);
-  padding: 1.1rem;
-  border-radius: 30px;
-  max-width: 300px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  padding: 0.75rem;
+  border-radius: 24px;
+  max-width: 320px;
+  width: 100%;
   margin: 0 auto;
+  box-shadow: var(--shadow-sm);
 }
 
 .phone-screen {
   background: #ffffff;
-  border-radius: 18px;
-  padding: 2rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  padding: 1.75rem 1.25rem;
   text-align: center;
-  min-height: 400px;
+  min-height: 330px;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   position: relative; overflow: hidden;
-  transition: background-color var(--transition-normal);
 }
 
 .phone-monogram {
@@ -327,9 +309,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   margin-bottom: 1rem;
 }
 
-.phone-couple-names { font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-main); line-height: 1.2; margin-bottom: 0.5rem; }
-.phone-date { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.4rem; }
-.phone-venue { font-size: 0.8rem; color: var(--text-main); background: var(--bg-alt); padding: 0.4rem 0.8rem; border-radius: var(--radius-pill); margin-bottom: 1.4rem; }
+.phone-couple-names { font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-main); line-height: 1.2; margin-bottom: 0.4rem; }
+.phone-date { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+.phone-venue { font-size: 0.8rem; color: var(--text-main); background: var(--bg-alt); padding: 0.4rem 0.8rem; border-radius: var(--radius-pill); margin-bottom: 1.2rem; }
 
 .phone-rsvp-btn { background: var(--accent-gold-dark); color: #fff; padding: 0.6rem 1.4rem; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 600; }
 
@@ -542,7 +524,22 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 /* ==========================================================================
    Customizer Studio
    ========================================================================== */
-.customizer-layout { display: grid; grid-template-columns: 420px 1fr; height: calc(100vh - 76px); margin-top: 76px; overflow: hidden; }
+/* Studio Top Navigation Bar */
+.studio-top-bar {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1001;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  gap: 1rem;
+}
+
+.customizer-layout { display: grid; grid-template-columns: 420px 1fr; height: calc(100vh - 68px); margin-top: 68px; overflow: hidden; }
 
 .customizer-sidebar { background: var(--bg-surface); border-right: 1px solid var(--border-light); display: flex; flex-direction: column; overflow: hidden; }
 
@@ -557,14 +554,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 .customizer-footer { padding: 1.15rem 1.4rem; border-top: 1px solid var(--border-light); background: var(--bg-surface); display: flex; align-items: center; justify-content: space-between; }
 
-.customizer-preview-container { background: #221a15; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }
+.customizer-preview-container { background: #1c1714; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; position: relative; overflow: hidden; }
 
 .device-switcher {
-  position: absolute; top: 20px;
-  background: rgba(0,0,0,0.35);
+  position: absolute; top: 16px;
+  background: rgba(0,0,0,0.45);
   padding: 0.35rem; border-radius: var(--radius-pill);
   display: flex; gap: 0.35rem;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
   z-index: 10;
 }
 
@@ -573,8 +570,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 .preview-frame-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: all var(--transition-normal); }
 
-.preview-frame-wrapper.mode-mobile { max-width: 360px; height: 700px; border-radius: 36px; border: 10px solid #120d0a; box-shadow: var(--shadow-lg); overflow: hidden; background: #fff; }
-.preview-frame-wrapper.mode-desktop { max-width: 980px; height: 620px; border-radius: 10px; border: 4px solid #120d0a; box-shadow: var(--shadow-lg); overflow: hidden; background: #fff; }
+.preview-frame-wrapper.mode-mobile { max-width: 360px; height: 680px; border-radius: 32px; border: 8px solid #100b08; box-shadow: var(--shadow-lg); overflow: hidden; background: #fff; }
+.preview-frame-wrapper.mode-desktop { max-width: 960px; height: 600px; border-radius: 8px; border: 3px solid #100b08; box-shadow: var(--shadow-lg); overflow: hidden; background: #fff; }
 
 /* ==========================================================================
    Checkout & Payment Modal
@@ -851,6 +848,8 @@ input, select, textarea {
   
   .live-editor-demo { padding: 1.25rem 0.85rem; }
   .editor-controls { padding: 1.1rem 0.85rem; }
+  .editor-preview-frame { max-width: 280px; padding: 0.5rem; }
+  .phone-screen { min-height: 290px; padding: 1.25rem 1rem; }
   
   .pricing-intro { padding: 1.5rem 1.15rem; }
   .pricing-range-header { font-size: 1.5rem; }

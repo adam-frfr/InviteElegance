@@ -209,11 +209,12 @@ function initStep2Demo() {
   const gInp = document.getElementById('editorGroom');
   const pName = document.getElementById('phoneCoupleNames');
   const pMono = document.getElementById('phoneMonogram');
+  const pVenue = document.getElementById('phoneVenueText');
 
   if (bInp && gInp && pName) {
     const update = () => {
-      const b = bInp.value || 'Ananya';
-      const g = gInp.value || 'Kabir';
+      const b = bInp.value.trim() || 'Ananya';
+      const g = gInp.value.trim() || 'Kabir';
       pName.textContent = `${b} & ${g}`;
       if (pMono) pMono.textContent = `${b.charAt(0)}&${g.charAt(0)}`;
     };
