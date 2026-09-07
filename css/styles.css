@@ -695,27 +695,201 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 @keyframes toastIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-/* Responsive */
+/* Checkout Modal Grid & Card Layout */
+.checkout-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+/* Dashboard Header & Title */
+.dash-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+.dash-title {
+  font-size: 2.2rem;
+  font-family: var(--font-serif);
+}
+.dash-header-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Published Invitation Top Bar & Hero */
+.inv-top-bar {
+  background: rgba(27, 21, 18, 0.94);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  gap: 1rem;
+}
+.inv-link-pill {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  word-break: break-all;
+}
+.inv-top-bar-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.inv-hero {
+  min-height: 80vh;
+  margin-top: 55px;
+  background: linear-gradient(rgba(20,15,12,0.38), rgba(20,15,12,0.58)), url('../assets/hero_preview.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.inv-names {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 6.5vw, 3.6rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  word-break: break-word;
+}
+.inv-venue-pill {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  margin-bottom: 2.25rem;
+  max-width: 92%;
+  word-break: break-word;
+}
+.inv-countdown-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.inv-countdown-item {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  min-width: 70px;
+  text-align: center;
+}
+.countdown-num {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent-gold-light);
+  line-height: 1.2;
+}
+.countdown-label {
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+/* Touch Input & Accessibility Standard */
+input, select, textarea {
+  font-size: 16px !important; /* Prevents auto-zoom on mobile Safari */
+}
+
+/* Tab Bar Touch Scroll in Customizer */
+.customizer-tabs {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.customizer-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 1024px) {
-  .customizer-layout { grid-template-columns: 1fr; height: auto; }
-  .customizer-preview-container { height: 580px; }
-  .dash-stats-grid { grid-template-columns: 1fr 1fr; }
+  .customizer-layout { grid-template-columns: 1fr; height: auto; margin-top: 68px; }
+  .customizer-preview-container { height: auto; min-height: 520px; padding: 1.5rem 1rem; }
+  .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .dash-content-grid { grid-template-columns: 1fr; }
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-headline { max-width: none; }
   .steps-grid, .pricing-cards-grid, .testimonials-grid { grid-template-columns: 1fr; }
   .editor-demo-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .checkout-modal-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  .container { width: 92%; padding: 0 0.75rem; }
+  .site-header { height: 68px; }
+  .header-container { height: 68px; }
   .nav-links { display: none; }
   .header-dashboard-btn, .header-browse-btn { display: none; }
   .mobile-toggle { display: block; }
-  .hero-headline { font-size: 2.1rem; }
-  .section { padding: 4.5rem 0; }
-  .section-title { font-size: 1.9rem; }
+  .hero-section { padding-top: 7.25rem; padding-bottom: 3.5rem; }
+  .hero-headline { font-size: clamp(2.1rem, 6.5vw, 2.75rem); line-height: 1.2; }
+  .hero-subheadline { font-size: 1rem; margin-bottom: 1.75rem; }
+  .hero-actions { width: 100%; flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .section { padding: 4rem 0; }
+  .section-title { font-size: 1.85rem; }
+  .section-header { margin-bottom: 2.5rem; }
+  
+  .live-editor-demo { padding: 1.25rem 0.85rem; }
+  .editor-controls { padding: 1.1rem 0.85rem; }
+  
+  .pricing-intro { padding: 1.5rem 1.15rem; }
+  .pricing-range-header { font-size: 1.5rem; }
+  .pricing-feature-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .pricing-feature-grid { grid-template-columns: 1fr; }
-  .compare-table { min-width: 640px; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+  
+  .dash-header-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .dash-title { font-size: 1.75rem; }
+  .dash-header-actions { width: 100%; flex-direction: column; }
+  .dash-header-actions .btn { width: 100%; }
+  
+  .compare-table { min-width: 580px; }
+  
+  .inv-top-bar { flex-direction: column; align-items: flex-start; padding: 0.6rem 1rem; }
+  .inv-top-bar-actions { width: 100%; justify-content: space-between; }
+  
+  .modal-backdrop { padding: 0.5rem; }
+  .modal-container { max-height: 94vh; border-radius: var(--radius-md); }
+  .modal-header { padding: 1rem 1.15rem; }
+  .modal-body { padding: 1.25rem 1rem; }
+  
+  .subdomain-input-group { flex-direction: column; align-items: stretch; }
+  .subdomain-input-group span { border-left: none; border-top: 1px solid var(--border-light); text-align: center; }
+  
+  .preview-frame-wrapper.mode-desktop {
+    max-width: 100%; height: 420px;
+  }
+  .preview-frame-wrapper.mode-mobile {
+    max-width: 100%; width: 320px; height: 560px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-stats-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .dash-stat-card { padding: 1.1rem 0.85rem; }
+  .stat-number { font-size: 1.6rem; }
+  .mobile-nav-drawer { width: 85vw; }
+  .toast-container { left: 16px; right: 16px; bottom: 16px; }
+  .toast { font-size: 0.82rem; }
 }

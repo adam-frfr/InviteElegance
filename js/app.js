@@ -58,14 +58,27 @@ function initMobileMenu() {
   const toggle = document.getElementById('mobileToggle');
   const drawer = document.getElementById('mobileDrawer');
   const overlay = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('mobileDrawerClose');
 
-  if (toggle && drawer && overlay) {
-    const toggleFn = () => {
-      drawer.classList.toggle('open');
-      overlay.classList.toggle('open');
+  if (drawer && overlay) {
+    const closeFn = () => {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
     };
-    toggle.onclick = toggleFn;
-    overlay.onclick = toggleFn;
+    const openFn = () => {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+    };
+
+    if (toggle) toggle.onclick = openFn;
+    if (overlay) overlay.onclick = closeFn;
+    if (closeBtn) closeBtn.onclick = closeFn;
+
+    drawer.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        closeFn();
+      });
+    });
   }
 }
 

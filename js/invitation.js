@@ -49,11 +49,11 @@ window.Invitation = {
     container.innerHTML = `
       <div class="invitation-page">
         <!-- Invitation Top Bar -->
-        <div style="background: rgba(27,21,18,0.92); color: #fff; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
-          <div style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: var(--accent-gold);">Live link:</span> ${pubData.subdomain}
+        <div class="inv-top-bar">
+          <div class="inv-link-pill">
+            <span style="color: var(--accent-gold); font-weight: 600;">Live link:</span> ${pubData.subdomain}
           </div>
-          <div style="display: flex; gap: 0.75rem;">
+          <div class="inv-top-bar-actions">
             <button class="btn btn-gold btn-sm" onclick="appRouter.navigate('dashboard');">
               Couple Dashboard
             </button>
@@ -64,29 +64,29 @@ window.Invitation = {
         </div>
 
         <!-- Invitation Hero Header -->
-        <div class="inv-hero" style="margin-top: 50px;">
+        <div class="inv-hero">
           <div style="font-size: 0.95rem; letter-spacing: 0.03em; margin-bottom: 1rem; color: var(--accent-gold-light); font-style: italic;">
             ${d.tagline}
           </div>
           <h1 class="inv-names">${d.brideName} & ${d.groomName}</h1>
           <p class="inv-tagline">Are getting married on ${this.formatDate(d.weddingDate)}</p>
-          <div style="background: rgba(255,255,255,0.16); backdrop-filter: blur(8px); padding: 0.75rem 1.75rem; border-radius: var(--radius-pill); font-size: 1rem; margin-bottom: 2.5rem;">
+          <div class="inv-venue-pill">
             ${d.venueName}, ${d.venueCity}
           </div>
 
           <!-- Countdown -->
-          <div style="display: flex; gap: 1.25rem;">
-            <div style="background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); padding: 1rem 1.5rem; border-radius: 12px; min-width: 76px;">
-              <div style="font-size: 1.8rem; font-weight: 600; color: var(--accent-gold-light);">103</div>
-              <div style="font-size: 0.72rem; opacity: 0.75;">days</div>
+          <div class="inv-countdown-grid">
+            <div class="inv-countdown-item">
+              <div class="countdown-num">103</div>
+              <div class="countdown-label">days</div>
             </div>
-            <div style="background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); padding: 1rem 1.5rem; border-radius: 12px; min-width: 76px;">
-              <div style="font-size: 1.8rem; font-weight: 600; color: var(--accent-gold-light);">14</div>
-              <div style="font-size: 0.72rem; opacity: 0.75;">hours</div>
+            <div class="inv-countdown-item">
+              <div class="countdown-num">14</div>
+              <div class="countdown-label">hours</div>
             </div>
-            <div style="background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); padding: 1rem 1.5rem; border-radius: 12px; min-width: 76px;">
-              <div style="font-size: 1.8rem; font-weight: 600; color: var(--accent-gold-light);">42</div>
-              <div style="font-size: 0.72rem; opacity: 0.75;">mins</div>
+            <div class="inv-countdown-item">
+              <div class="countdown-num">42</div>
+              <div class="countdown-label">mins</div>
             </div>
           </div>
         </div>

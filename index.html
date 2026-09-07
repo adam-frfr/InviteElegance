@@ -37,11 +37,11 @@
         </ul>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <button onclick="appRouter.navigate('dashboard');" class="btn btn-secondary btn-sm">
+      <div class="header-actions">
+        <button onclick="appRouter.navigate('dashboard');" class="btn btn-secondary btn-sm header-dashboard-btn">
           📊 My Dashboard
         </button>
-        <a href="#templates" onclick="appRouter.navigate('landing');" class="btn btn-primary btn-sm">Browse templates</a>
+        <a href="#templates" onclick="appRouter.navigate('landing');" class="btn btn-primary btn-sm header-browse-btn">Browse templates</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
           <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -52,7 +52,10 @@
   <!-- Mobile Drawer -->
   <div class="mobile-nav-overlay" id="mobileOverlay"></div>
   <div class="mobile-nav-drawer" id="mobileDrawer">
-    <div class="logo-brand">InviteElegance</div>
+    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div class="logo-brand">InviteElegance</div>
+      <button id="mobileDrawerClose" class="modal-close-btn" aria-label="Close navigation">&times;</button>
+    </div>
     <ul class="mobile-nav-links">
       <li><a href="#how-it-works" onclick="appRouter.navigate('landing');">How it works</a></li>
       <li><a href="#templates" onclick="appRouter.navigate('landing');">Templates</a></li>
@@ -595,12 +598,12 @@
        ========================================================================== -->
   <div id="dashboardView" class="app-view">
     <div class="container dashboard-layout">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+      <div class="dash-header-bar">
         <div>
-          <h1 style="font-size: 2.2rem; font-family: var(--font-serif);">Couple Admin Dashboard</h1>
+          <h1 class="dash-title">Couple Admin Dashboard</h1>
           <p style="color: var(--text-muted); font-size: 0.95rem;">Manage guest RSVPs, export CSV data, and get printable QR codes.</p>
         </div>
-        <div style="display: flex; gap: 1rem;">
+        <div class="dash-header-actions">
           <button class="btn btn-gold btn-sm" onclick="Dashboard.exportCsv();">📥 Export RSVPs (CSV)</button>
           <button class="btn btn-secondary btn-sm" onclick="Invitation.renderLivePage(); appRouter.navigate('invitation');">🌐 View Live Website</button>
         </div>
@@ -683,7 +686,7 @@
       </div>
       <div class="modal-body" style="padding: 2rem;">
         <div id="paymentFormBox">
-          <div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem;">
+          <div class="checkout-modal-grid">
             <div>
               <!-- Subdomain validation -->
               <div class="subdomain-checker">
